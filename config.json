@@ -1,0 +1,6 @@
+{
+  "stress": "pause_deployment",
+  "fatigue": "alert_team",
+  "distraction": "log_only",
+  "normal": "continue_pipeline"
+}

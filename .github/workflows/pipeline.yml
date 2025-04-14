@@ -1,0 +1,24 @@
+name: Cognitive DevOps Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Check for pause flag
+      run: |
+        if [ -f pause.flag ]; then
+          echo "Deployment paused due to stress state."
+          exit 1
+        else
+          echo "No stress detected. Proceeding with build."
+        fi
+
+    - name: Simulate Deployment Step
+      run: echo "🎉 Build and deploy steps go here!"
